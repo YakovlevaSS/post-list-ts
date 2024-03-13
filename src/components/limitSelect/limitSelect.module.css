@@ -1,0 +1,23 @@
+.selectContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    gap: 12px;
+  }
+  
+  .select {
+    padding: 8px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .select:hover,
+  .select:focus {
+    border-color: #1E90FF;
+  }
+  
+  .select:focus {
+    outline: none;
+  }
+  

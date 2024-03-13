@@ -1,6 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import Pagination from 'react-js-pagination';
 
+import LimitSelect from '../limitSelect/LimitSelect';
 import S from './pagination.module.css';
 
 
@@ -19,7 +19,6 @@ const PaginationComp: React.FC<PaginationProps> = ({
 }) => {
   const handlePageChange = (pageNumber: number) => {
     setPage(pageNumber);
-    setLimit(10);
   };
 
   // Количество страниц, отображаемых в пагинации
@@ -36,6 +35,7 @@ const PaginationComp: React.FC<PaginationProps> = ({
         totalItemsCount={ 100 }
         onChange={ handlePageChange }
       />
+      <LimitSelect limit={ limit } setLimit={ setLimit } />
     </div>
   );
 };
