@@ -19,6 +19,7 @@ const PaginationComp: React.FC<PaginationProps> = ({
 }) => {
   const handlePageChange = (pageNumber: number) => {
     setPage(pageNumber);
+    setLimit(10);
   };
 
   // Количество страниц, отображаемых в пагинации
