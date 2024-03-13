@@ -27,5 +27,7 @@
 ## Запуск тестов:
 1. Введите в терминале: npm run test
 
+## Диплой пректа:
+https://leafy-smakager-496a59.netlify.app
 
 
