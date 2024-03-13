@@ -1,0 +1,77 @@
+.wrap {
+  padding: 20px;
+  background-color: #dcdcdc;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  border-radius: 20px;
+  background-color: #ffffff;
+  padding: 40px;
+  width: 800px;
+  min-height: 400px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.24px;
+  color: #000000;
+}
+
+.textBig {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.24px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.textLabel {
+  font-size: 14px;
+  line-height: 20px;
+  color: #808080;
+}
+
+.errorWrap {
+  padding: 20px;
+  background-color: #dcdcdc;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorText {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.24px;
+  color: #ff0000;
+  text-align: center;
+}
