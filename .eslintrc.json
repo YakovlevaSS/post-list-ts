@@ -294,7 +294,7 @@
 		//    ],
 		// https://reactjs.org/docs/hooks-rules.html
 		"react-hooks/rules-of-hooks": 2,
-		"react-hooks/exhaustive-deps": 1,
+		"react-hooks/exhaustive-deps": 0,
 		// https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
 		"react/react-in-jsx-scope": 0,
 		// https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md

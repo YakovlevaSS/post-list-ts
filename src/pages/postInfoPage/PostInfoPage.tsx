@@ -5,36 +5,34 @@ import S from './postInfoPage.module.css';
 import BackButton from '../../components/backButton/BackButton';
 import Loader from '../../components/loader/loader';
 import { getPostByIdApi } from '../../API/postsApi';
+import { IPost } from '../../interface/postInterface';
 
-
-interface Post {
-  title: string;
-  body: string;
-}
 
 const PostInfoPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [post, setPost] = useState<Post | null>(null);
+  const [post, setPost] = useState<IPost | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [textError, setTextError] = useState<string>('');
 
-  const fetchDataPosts = async () => {
-    if (id !== undefined) {
-      try {
-        setIsLoading(true);
-        const response = await getPostByIdApi(parseInt(id, 10));
-        if (response) {
-          setPost(response);
-        }
-      } catch (error: any) {
-        setTextError(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-  };
 
   useEffect(() => {
+    const fetchDataPosts = async () => {
+      if (id !== undefined) {
+        try {
+          setIsLoading(true);
+          const response = await getPostByIdApi(parseInt(id, 10));
+          if (response) {
+            setPost(response);
+          }
+        } catch (error) {
+          if (error instanceof Error) {
+            setTextError(error.message);
+          }
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    };
     fetchDataPosts();
   }, []);
 

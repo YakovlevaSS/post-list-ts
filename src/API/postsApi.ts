@@ -1,13 +1,9 @@
+import { IPost } from '../interface/postInterface';
+
+
 const baseURL = 'https://jsonplaceholder.typicode.com';
 
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
-export function getPostsListApi(page: number, limit: number): Promise<Post[]> {
+export function getPostsListApi(page: number, limit: number): Promise<IPost[]> {
   return fetch(`${baseURL}/posts?_page=${page}&_limit=${limit}`, {
     method: 'GET',
     headers: {
@@ -20,7 +16,7 @@ export function getPostsListApi(page: number, limit: number): Promise<Post[]> {
           `Ошибка запроса: ${response.status} ${response.statusText}`,
         );
       }
-      return response.json() as Promise<Post[]>;
+      return response.json() as Promise<IPost[]>;
     })
     .catch((error) => {
       console.error('Произошла ошибка:', error.message);
@@ -28,7 +24,7 @@ export function getPostsListApi(page: number, limit: number): Promise<Post[]> {
     });
 }
 
-export function getPostByIdApi(postId: number): Promise<Post> {
+export function getPostByIdApi(postId: number): Promise<IPost> {
   return fetch(`${baseURL}/posts/${postId}`, {
     method: 'GET',
     headers: {
@@ -41,7 +37,7 @@ export function getPostByIdApi(postId: number): Promise<Post> {
           `Ошибка запроса: ${response.status} ${response.statusText}`,
         );
       }
-      return response.json() as Promise<Post>;
+      return response.json() as Promise<IPost>;
     })
     .catch((error) => {
       console.error('Произошла ошибка:', error.message);

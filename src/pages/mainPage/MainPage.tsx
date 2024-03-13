@@ -6,6 +6,7 @@ import PaginationComp from '../../components/pagination/PaginationComp';
 import Loader from '../../components/loader/loader';
 import EmptyList from '../../components/emptyList/EmptyList';
 import { getPostsListApi } from '../../API/postsApi';
+import { IPost } from '../../interface/postInterface';
 
 
 interface MainPageProps {
@@ -21,25 +22,28 @@ const MainPage: React.FC<MainPageProps> = ({
   limit,
   setLimit
 }) => {
-  const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<IPost[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [textError, setTextError] = useState<string>('');
 
-  const fetchDataPosts = async () => {
-    try {
-      setIsLoading(true);
-      const response = await getPostsListApi(page, limit);
-      if (response) {
-        setPosts(response);
-      }
-    } catch (error: any) {
-      setTextError(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchDataPosts = async () => {
+      try {
+        setIsLoading(true);
+        const response = await getPostsListApi(page, limit);
+        if (response) {
+          setPosts(response);
+        }
+      } catch (error) {
+        if (error instanceof Error) {
+          setTextError(error.message);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+
     fetchDataPosts();
   }, [page, limit]);
 
