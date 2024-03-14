@@ -47,20 +47,20 @@ const MainPage: React.FC<MainPageProps> = ({
     fetchDataPosts();
   }, [page, limit]);
 
+  if (isLoading) {
+    return (
+      <div className={ S.wrap }>
+        <Loader />
+      </div>
+    );
+  }
+
   if (textError) {
     return (
       <div className={ S.errorWrap }>
         <p className={ S.errorText }>Что-то пошло не так,</p>
         <p className={ S.errorText }>попробуйте повторить запрос позже!</p>
         <p className={ S.errorText }>{ textError }</p>
-      </div>
-    );
-  }
-
-  if (isLoading) {
-    return (
-      <div className={ S.wrap }>
-        <Loader />
       </div>
     );
   }

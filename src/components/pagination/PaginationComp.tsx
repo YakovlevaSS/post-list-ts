@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Pagination from 'react-js-pagination';
 
 import LimitSelect from '../limitSelect/LimitSelect';
