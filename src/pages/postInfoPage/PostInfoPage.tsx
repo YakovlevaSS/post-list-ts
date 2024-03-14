@@ -6,6 +6,7 @@ import BackButton from '../../components/backButton/BackButton';
 import Loader from '../../components/loader/loader';
 import { getPostByIdApi } from '../../API/postsApi';
 import { IPost } from '../../interface/postInterface';
+import ErrorComp from '../../components/errorComp/ErrorComp';
 
 
 const PostInfoPage: React.FC = () => {
@@ -39,10 +40,7 @@ const PostInfoPage: React.FC = () => {
   if (textError) {
     return (
       <div className={ S.wrap }>
-        <div className={ S.errorWrap }>
-          <p className={ S.errorText }>Что-то пошло не так,</p>
-          <p className={ S.errorText }>попробуйте повторить запрос позже!</p>
-        </div>
+        <ErrorComp textError={ textError } />
       </div>
     );
   }

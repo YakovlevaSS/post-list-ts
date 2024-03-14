@@ -7,6 +7,7 @@ import Loader from '../../components/loader/loader';
 import EmptyList from '../../components/emptyList/EmptyList';
 import { getPostsListApi } from '../../API/postsApi';
 import { IPost } from '../../interface/postInterface';
+import ErrorComp from '../../components/errorComp/ErrorComp';
 
 
 interface MainPageProps {
@@ -57,10 +58,8 @@ const MainPage: React.FC<MainPageProps> = ({
 
   if (textError) {
     return (
-      <div className={ S.errorWrap }>
-        <p className={ S.errorText }>Что-то пошло не так,</p>
-        <p className={ S.errorText }>попробуйте повторить запрос позже!</p>
-        <p className={ S.errorText }>{ textError }</p>
+      <div className={ S.wrap }>
+        <ErrorComp textError={ textError } />
       </div>
     );
   }

@@ -2,16 +2,11 @@ import { NavLink } from 'react-router-dom';
 
 import S from './postList.module.css';
 import PostItem from '../postItem/PostItem';
+import { IPost } from '../../interface/postInterface';
 
-
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-}
 
 interface PostsListProps {
-  posts: Post[];
+  posts: IPost[];
 }
 
 const PostsList: React.FC<PostsListProps> = ({ posts }) => (
